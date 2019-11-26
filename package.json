@@ -4,7 +4,7 @@
   "description": "Personal Website",
   "main": "index.js",
   "scripts": {
-    "clean": "rm dist/bundle.js",
+    "clean": "rm dist/*",
     "start": "parcel src/index.html --port 3000 --open",
     "build": "parcel build src/index.html",
     "watch": "parcel watch src/index.html",
