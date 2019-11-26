@@ -8,6 +8,7 @@
     "module": "es6",
     "moduleResolution": "node",
     "target": "es5",
+    "esModuleInterop": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react"
