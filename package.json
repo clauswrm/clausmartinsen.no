@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm dist/*",
     "start": "parcel src/index.html --port 3000 --open",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --no-source-maps",
     "watch": "parcel watch src/index.html",
     "test": "jest",
     "coverage": "jest --coverage"
