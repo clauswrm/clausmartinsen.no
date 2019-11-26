@@ -1,0 +1,54 @@
+{
+  "name": "clausmartinsen.no",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "start": "parcel src/index.html --port 3000 --open",
+    "build": "parcel build src/index.html",
+    "watch": "parcel watch src/index.html",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clauswrm/clausmartinsen.no.git"
+  },
+  "keywords": [],
+  "author": "Claus Martinsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clauswrm/clausmartinsen.no/issues"
+  },
+  "homepage": "https://github.com/clauswrm/clausmartinsen.no#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.9.13",
+    "@types/react-dom": "^16.9.4",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
+  },
+  "jest": {
+    "coverageReporters": [
+      "html"
+    ]
+  }
+}
