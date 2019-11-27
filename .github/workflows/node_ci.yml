@@ -16,10 +16,17 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, build, and test
+      - name: npm install, build, format-check and test with coverage
         run: |
           npm ci
           npm run build
-          npm test
+          npm run format-check
+          npm test -- --coverage
         env:
           CI: true
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.0.4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
+          name: codecov-clausmartinsen-no
