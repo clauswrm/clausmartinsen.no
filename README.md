@@ -8,6 +8,7 @@
 ![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m783891447-1ce4e18a3ab77fe3d9e7a11a)
 ![Dependencies](https://david-dm.org/clauswrm/clausmartinsen.no.svg)
 ![License](https://img.shields.io/github/license/clauswrm/clausmartinsen.no)
+![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
 This is the code for my personal homepage where I experiment with different technologies for my own fun and learning. The website can be found at <https://clausmartinsen.no>.
 
