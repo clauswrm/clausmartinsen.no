@@ -1,0 +1,56 @@
+@import "src/style";
+
+.main {
+  background: linear-gradient(rgba(37, 59, 54, 0.9), rgba(24, 36, 33, 0.9)), url("noise.svg");
+  min-height: 100%;
+  color: $text-primary;
+  font-family: $font-sans;
+}
+
+main {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  @media (min-width: 768px) {
+    & {
+      max-width: 70%;
+      font-size: 2em;
+    }
+  }
+  @media (min-width: 1200px) {
+    & {
+      max-width: 60%;
+      font-size: 2.5em;
+    }
+  }
+
+  max-width: 80%;
+  font-size: 1.5em;
+
+  & + section {
+    margin: 2em 0 0 0;
+  }
+}
+
+em {
+  font-style: normal;
+  font-family: $font-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $text-primary;
+}
+
+header {
+  padding: 2em 0 2em 5%;
+  font-size: 1.5em;
+}
+
+.greeting {
+  font-family: $font-serif;
+}
