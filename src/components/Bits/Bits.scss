@@ -1,0 +1,25 @@
+@import "src/style";
+
+.bits {
+  font-family: $font-sans;
+  color: $text-secondary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  svg {
+    font-size: 3em;
+    padding-top: 50px;
+  }
+
+  path {
+    fill: transparent;
+  }
+
+  text {
+    font-family: $font-sans;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    fill: #ffffff;
+  }
+}
