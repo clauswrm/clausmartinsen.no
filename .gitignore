@@ -1,6 +1,9 @@
+# Node, Parcel and Testing
 .cache/
-.env
 coverage/
-dist/
 node_modules
+dist/
+
+# Config files
+.env
 *.log
