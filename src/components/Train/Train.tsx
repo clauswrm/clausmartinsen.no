@@ -1,25 +1,29 @@
 import React from "react";
-import { getUserData, useFirebaseAuth } from "../../firebase";
+import { useFirebaseAuth, useUserData } from "../../firebase";
 import Page from "../Page/Page";
 import "./Train.scss";
 
 function Train() {
-  const { authUser, signIn } = useFirebaseAuth();
+  const { authUser, signIn, signOut } = useFirebaseAuth();
+  const { userData, loading, error } = useUserData();
 
-  const handleClick = () => {
-    signIn();
-  };
-
-  const handleTest = () => {
-    if (authUser) {
-      getUserData(authUser).then((data) => console.log(data));
-    }
-  };
   return (
     <Page>
       {`Hi, ${authUser ? authUser.displayName : "unknown"}!`}
-      <button onClick={handleClick}>Auth</button>
-      <button onClick={handleTest}>Test</button>
+      <button onClick={signIn}>Log in</button>
+      <button onClick={signOut}>Log out</button>
+      {userData && userData.trainingPlan ? (
+        <div className="calendar">
+          {Object.entries(userData.trainingPlan).map(([weekday, text]) => (
+            <div key={weekday}>
+              <div>{weekday}</div>
+              <div>{text}</div>
+            </div>
+          ))}
+        </div>
+      ) : null}
+      {loading ? "Loading..." : "Done"}
+      {error ? error.message : undefined}
     </Page>
   );
 }

@@ -1,2 +1,2 @@
 export { useFirebaseAuth } from "./auth";
-export { addNewUser, getUserData, UserData } from "./firestore";
+export { addNewUserIfNotExists, useUserData, UserData } from "./firestore";
