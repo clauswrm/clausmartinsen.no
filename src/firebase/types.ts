@@ -1,4 +1,12 @@
-export const Weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] as const;
+export const Weekdays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+] as const;
 export type Weekday = typeof Weekdays[number];
 
 export type TrainingPlan = Record<Weekday, string>;

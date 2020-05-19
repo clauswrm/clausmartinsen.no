@@ -52,5 +52,9 @@ export const addNewUserIfNotExists = async (user: firebase.User) => {
 };
 
 export const updateTrainingPlan = async (user: firebase.User, trainingPlan: TrainingPlan) => {
-  return firebase.firestore().collection("users").doc(user.uid).update({ trainingPlan: trainingPlan });
+  return firebase
+    .firestore()
+    .collection("users")
+    .doc(user.uid)
+    .update({ trainingPlan: trainingPlan });
 };
