@@ -1,29 +1,56 @@
-import React from "react";
-import { useFirebaseAuth, useUserData } from "../../firebase";
+import React, { useEffect, useState } from "react";
+import { TrainingPlan, updateTrainingPlan, useFirebaseAuth, useUserData, Weekday } from "../../firebase";
+import Calendar from "../Calendar/Calendar";
+import LoginButton from "../LoginButton/LoginButton";
 import Page from "../Page/Page";
+import Spinner from "../Spinner/Spinner";
 import "./Train.scss";
 
 function Train() {
-  const { authUser, signIn, signOut } = useFirebaseAuth();
+  const { authUser } = useFirebaseAuth();
   const { userData, loading, error } = useUserData();
+  const [trainingData, setTrainingData] = useState<TrainingPlan>({
+    Monday: "",
+    Tuesday: "",
+    Wednesday: "",
+    Thursday: "",
+    Friday: "",
+    Saturday: "",
+    Sunday: "",
+  });
+  const [saveState, setSaveState] = useState<"saved" | "unsaved">("saved");
+  const [timeOutId, setTimeoutId] = useState<number>();
+
+  useEffect(() => {
+    if (userData?.trainingPlan) {
+      setTrainingData(userData.trainingPlan);
+    }
+  }, [userData]);
+
+  const handleEdit = (event: React.ChangeEvent<HTMLTextAreaElement>, weekday: Weekday) => {
+    window.clearTimeout(timeOutId);
+    const newTrainingData = { ...trainingData };
+    newTrainingData[weekday] = event.target.value;
+    setTrainingData(newTrainingData);
+    setSaveState("unsaved");
+    const newTimeOutId = window.setTimeout(() => savePlan(newTrainingData), 10000);
+    setTimeoutId(newTimeOutId);
+  };
+
+  const savePlan = (newTrainingData: TrainingPlan) => {
+    if (authUser) {
+      updateTrainingPlan(authUser, newTrainingData).then(() => setSaveState("saved"));
+      console.log("lagrer!");
+    }
+  };
 
   return (
-    <Page>
-      {`Hi, ${authUser ? authUser.displayName : "unknown"}!`}
-      <button onClick={signIn}>Log in</button>
-      <button onClick={signOut}>Log out</button>
-      {userData && userData.trainingPlan ? (
-        <div className="calendar">
-          {Object.entries(userData.trainingPlan).map(([weekday, text]) => (
-            <div key={weekday}>
-              <div>{weekday}</div>
-              <div>{text}</div>
-            </div>
-          ))}
-        </div>
-      ) : null}
-      {loading ? "Loading..." : "Done"}
-      {error ? error.message : undefined}
+    <Page headerMenu={<LoginButton />}>
+      <h2 className="trainingGreeting">{`Hei, ${authUser ? authUser.displayName : "Gjest"}!`}</h2>
+      <Calendar trainingData={trainingData} onEdit={handleEdit} />
+      {loading && <Spinner />}
+      {error && error.message}
+      <div>{saveState}</div>
     </Page>
   );
 }

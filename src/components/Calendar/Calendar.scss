@@ -1,0 +1,24 @@
+@import "src/assets/style";
+
+.calendar {
+  tbody td {
+    border: 1px dotted lighten($primary-light, 10%);
+    border-right: 0;
+
+    &:last-child {
+      border-right: 1px dotted lighten($primary-light, 10%);
+    }
+  }
+
+  textarea {
+    font-family: $font-sans;
+    color: $text-primary;
+    background-color: rgba(#000000, 0);
+    padding: 1em;
+    margin: 0;
+    border: 0;
+    resize: none;
+    width: auto;
+    overflow: hidden;
+  }
+}

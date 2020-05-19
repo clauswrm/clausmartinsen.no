@@ -5,13 +5,17 @@ import "./Page.scss";
 
 interface PageProps {
   children: React.ReactNode;
+  headerMenu?: React.ReactNode;
 }
 
 function Page(props: PageProps) {
   return (
     <div className="page">
       <header className="header">
-        <Link to="/">{"Claus Martinsen"}</Link>
+        <Link to="/">
+          <h1>{"Claus Martinsen"}</h1>
+        </Link>
+        <div>{props.headerMenu}</div>
       </header>
       <main className="main">{props.children}</main>
       <Bits />

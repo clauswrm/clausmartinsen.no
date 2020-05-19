@@ -2,14 +2,7 @@ import firebase, { FirebaseError } from "firebase/app";
 import "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useFirebaseAuth } from "./auth";
-
-type Weekday = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
-
-export interface UserData {
-  uid: string;
-  firstLogin: firebase.firestore.Timestamp;
-  trainingPlan?: Record<Weekday, string>;
-}
+import { TrainingPlan, UserData } from "./types";
 
 export const useUserData = () => {
   const [userData, setUserData] = useState<UserData>();
@@ -56,4 +49,8 @@ export const addNewUserIfNotExists = async (user: firebase.User) => {
       .doc(user.uid)
       .set({ uid: user.uid, firstLogin: firebase.firestore.FieldValue.serverTimestamp() });
   }
+};
+
+export const updateTrainingPlan = async (user: firebase.User, trainingPlan: TrainingPlan) => {
+  return firebase.firestore().collection("users").doc(user.uid).update({ trainingPlan: trainingPlan });
 };
