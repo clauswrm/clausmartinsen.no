@@ -11,14 +11,16 @@ interface PageProps {
 function Page(props: PageProps) {
   return (
     <div className="page">
-      <header className="header">
+      <header>
         <Link to="/">
           <h1>{"Claus Martinsen"}</h1>
         </Link>
         <div>{props.headerMenu}</div>
       </header>
-      <main className="main">{props.children}</main>
-      <Bits />
+      <main>{props.children}</main>
+      <footer>
+        <Bits />
+      </footer>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { useFirebaseAuth } from "../../firebase";
 import Spinner from "../Spinner/Spinner";
+import "./LoginButton.scss";
 
 function LoginButton() {
   const { authUser, signIn, signOut, loading } = useFirebaseAuth();
@@ -13,7 +14,11 @@ function LoginButton() {
     }
   };
 
-  return <button onClick={handleClick}>{loading ? <Spinner /> : authUser ? "Log ut" : "Log in"}</button>;
+  return (
+    <button className="login" onClick={handleClick}>
+      {loading ? <Spinner /> : authUser ? "Log ut" : "Log in"}
+    </button>
+  );
 }
 
 export default LoginButton;

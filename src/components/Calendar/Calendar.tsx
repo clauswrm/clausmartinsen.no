@@ -1,5 +1,5 @@
 import React from "react";
-import { TrainingPlan, Weekdays } from "../../firebase";
+import { TrainingPlan, Weekday, Weekdays } from "../../firebase";
 import "./Calendar.scss";
 
 interface CalendarProps {

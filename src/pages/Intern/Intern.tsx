@@ -6,7 +6,7 @@ import Page from "../Page/Page";
 import Train from "../Train/Train";
 
 function Intern() {
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
 
   return (
     <Page headerMenu={<LoginButton />}>
