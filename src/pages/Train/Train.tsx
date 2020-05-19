@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { TrainingPlan, updateTrainingPlan, useFirebaseAuth, useUserData, Weekday } from "../../firebase";
-import Calendar from "../Calendar/Calendar";
-import LoginButton from "../LoginButton/LoginButton";
-import Page from "../Page/Page";
-import Spinner from "../Spinner/Spinner";
+import Calendar from "../../components/Calendar/Calendar";
+import Spinner from "../../components/Spinner/Spinner";
+import {
+  TrainingPlan,
+  updateTrainingPlan,
+  useFirebaseAuth,
+  useUserData,
+  Weekday,
+} from "../../firebase";
 import "./Train.scss";
 
 function Train() {
@@ -45,13 +49,13 @@ function Train() {
   };
 
   return (
-    <Page headerMenu={<LoginButton />}>
+    <>
       <h2 className="trainingGreeting">{`Hei, ${authUser ? authUser.displayName : "Gjest"}!`}</h2>
       <Calendar trainingData={trainingData} onEdit={handleEdit} />
       {loading && <Spinner />}
       {error && error.message}
       <div>{saveState}</div>
-    </Page>
+    </>
   );
 }
 

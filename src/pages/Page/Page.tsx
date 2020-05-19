@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Bits from "../Bits/Bits";
+import Bits from "../../components/Bits/Bits";
 import "./Page.scss";
 
 interface PageProps {
