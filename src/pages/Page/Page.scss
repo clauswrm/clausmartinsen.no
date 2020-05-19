@@ -1,0 +1,30 @@
+@import "src/assets/style";
+
+.page {
+  background: linear-gradient(rgba(37, 59, 54, 0.9), rgba(24, 36, 33, 0.9)),
+    url("../../assets/img/noise.svg");
+  min-height: 100%;
+  color: $text-primary;
+  font-family: $font-sans;
+  display: flex;
+  flex-direction: column;
+
+  > header {
+    padding: 2em 2em 2em 5%;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  > main {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  > footer {
+    margin-top: auto;
+  }
+}

@@ -4,13 +4,23 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#EFEEEB",
-    "theme_color": "#0978A6",
+    "theme_color": "#253b36",
     "description": "Homepage of Claus Martinsen, Computer Science student and tech enthusiast.",
     "icons": [
         {
-            "src": "/img/favicon.ico",
-            "sizes": "64x64 32x32 24x24 16x16",
-            "type": "image/x-icon"
+            "src": "/img/favicon-16x16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "/img/favicon-32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/img/favicon-180x180.png",
+            "type": "image/png",
+            "sizes": "180x180"
         },
         {
             "src": "/img/favicon-192x192.png",
