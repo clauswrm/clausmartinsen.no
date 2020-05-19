@@ -1,4 +1,38 @@
-html, body, #root {
-    height: 100%;
-    margin: 0;
+@import "src/assets/style";
+@import "src/assets/fonts";
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Default element styles */
+
+button {
+  color: $text-primary;
+  background-color: $primary-light;
+  font-family: $font-sans;
+  font-size: 1em;
+  padding: 0.25em;
+  border: 1px solid $text-primary;
+  border-radius: 0.5em;
+  transition: background-color $transition-time, border $transition-time;
+
+  &:hover {
+    background-color: $primary-dark;
+    border: 1px solid darken($text-primary, 50%);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-sans;
+  font-size: 1em;
+  margin: 0;
+  font-weight: 400;
 }
